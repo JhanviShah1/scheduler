@@ -1,0 +1,1 @@
+{"version":3,"file":"main.995c65ad3d272a3a9ab6.bundle.js","sources":["webpack:///./src/components/Appointment/index.js"],"sourcesContent":["import React from \"react\";\nimport  \"./styles.scss\";\n\nexport default function Appointment(props) {\n  return <article className=\"appointment\"></article>;\n}\n"],"mappings":"AAAA","sourceRoot":""}

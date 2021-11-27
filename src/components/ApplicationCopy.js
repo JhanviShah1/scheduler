@@ -24,7 +24,7 @@ const days = [
 export default function Application(props) {
   const [day,setDay]=useState("Tuesday")
   const logData = (value)=>{
-    console.log(value)
+    //console.log(value)
   }
   
   

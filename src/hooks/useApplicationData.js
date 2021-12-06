@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function useApplicationData() {
   const [state, setState] = useState({
-    day: "Tuesday",
+    day: "Monday",
     days: [],
     appointments: {},
     interviewers: [],
@@ -58,10 +58,10 @@ export default function useApplicationData() {
     };
     const days = state.days.map((d) => {
       if (d.name === state.day) {
-        console.log("---------", d);
+        //console.log("---------", d);
         return { ...d, spots: d.spots + 1 };
       } else {
-        console.log("---------", d);
+        //console.log("---------", d);
         return d;
       }
     });
@@ -73,7 +73,7 @@ export default function useApplicationData() {
       });
     });
   }
-  function bookInterview(id, interview) {
+  function bookInterview(id, interview, isNewInterview) {
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
@@ -83,13 +83,16 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
-    const days = state.days.map((d) => {
-      if (d.name === state.day) {
-        return { ...d, spots: d.spots - 1 };
-      } else {
-        return d;
-      }
-    });
+    let days = [...state.days];
+    if (isNewInterview) {
+      days = state.days.map((d) => {
+        if (d.name === state.day) {
+          return { ...d, spots: d.spots - 1 };
+        } else {
+          return d;
+        }
+      });
+    }
     // const daysCopy = []
     // for(let d of state.days){
     //   if(d.name===state.day){

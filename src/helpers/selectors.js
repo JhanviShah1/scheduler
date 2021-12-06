@@ -4,35 +4,35 @@ export function getAppointmentsForDay(state, name) {
     return Object.values(state.appointments).filter(
       (appointment) => day.appointments.indexOf(appointment.id) > -1
     );
-    
   }
   return [];
 }
-export function getInterview(state,interview){
-  if(interview){
-    
-const studentName = interview.student;
-const interviewerId = interview.interviewer
-//console.log(state.interviewers[interviewerId])
+export function getInterview(state, interview) {
+  if (interview) {
+    const studentName = interview.student;
+    const interviewerId = interview.interviewer;
+    //console.log(state.interviewers[interviewerId])
 
-return {student: studentName, interviewer: {...state.interviewers[interviewerId]}}
+    return {
+      student: studentName,
+      interviewer: { ...state.interviewers[interviewerId] },
+    };
   }
   return null;
-
-
 }
 export function getInterviewersForDay(state, name) {
   const day = state.days.find((day) => day.name === name);
-  if(state.days.length=== 0){
+  if (state.days.length === 0) {
     return [];
   }
   if (day) {
-    return day.interviewers.map((interviewerId)=>{return state.interviewers[interviewerId]})
-    
+    return day.interviewers.map((interviewerId) => {
+      return state.interviewers[interviewerId];
+    });
+
     // return Object.values(state.appointments).filter(
     //   (appointment) => day.appointments.indexOf(appointment.id) > -1
     // );
-    
   }
   return [];
 }
@@ -47,10 +47,9 @@ export function getInterviewersForDay(state, name) {
 //   }
 // }
 
-
 //state.interviewers
 // interviewers: {
-//   "1": {  
+//   "1": {
 //     "id": 1,
 //     "name": "Sylvia Palmer",
 //     "avatar": "https://i.imgur.com/LpaY82x.png"
@@ -62,12 +61,11 @@ export function getInterviewersForDay(state, name) {
 //   }
 // }
 //output
-// {  
+// {
 //   "student": "Lydia Miller-Jones",
-//   "interviewer": {  
+//   "interviewer": {
 //     "id": 1,
 //     "name": "Sylvia Palmer",
 //     "avatar": "https://i.imgur.com/LpaY82x.png"
 //   }
 // }
-

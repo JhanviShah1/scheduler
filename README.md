@@ -21,3 +21,4 @@ npm test
 ```sh
 npm run storybook
 ```
+!["Screenshot of Appointment form"](doc/Appointment-form-schedular-app.png)

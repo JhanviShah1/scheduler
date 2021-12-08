@@ -2,39 +2,35 @@ import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
-import { getAppointmentsForDay,getInterview,getInterviewersForDay} from "../helpers/selectors";
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "../helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 export default function Application(props) {
-  const {state,setDay,bookInterview,cancelInterview} = useApplicationData()
-  
+  const { state, setDay, bookInterview, cancelInterview } =
+    useApplicationData();
+
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-  
+
   const dailyInterviews = getInterviewersForDay(state, state.day);
- const schedule =  dailyAppointments.map(
-    (appointmentItem) => {
-      const interview = getInterview(state, appointmentItem.interview);
-      return (
-        <Appointment
-          key={appointmentItem.id}
-          id={appointmentItem.id}
-          time={appointmentItem.time}
-          interview={interview}
-          dailyInterviews = {dailyInterviews}
-          bookInterview = {bookInterview}
-          cancelInterview = {cancelInterview}
-          
-        />
-      );
-    }
-  );
-  // const setDay = (nameOfDay) => {
-  //   setState({ ...state, day: nameOfDay });
-  //   console.log(`STATE:--${state} AND day:--${nameOfDay}`)
-  // };
+  const schedule = dailyAppointments.map((appointmentItem) => {
+    const interview = getInterview(state, appointmentItem.interview);
+    return (
+      <Appointment
+        key={appointmentItem.id}
+        id={appointmentItem.id}
+        time={appointmentItem.time}
+        interview={interview}
+        dailyInterviews={dailyInterviews}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
+      />
+    );
+  });
+
   return (
     <main className="layout">
       <section className="sidebar">

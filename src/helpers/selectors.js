@@ -37,35 +37,3 @@ export function getInterviewersForDay(state, name) {
   return [];
 }
 
-//appointmentItem
-// {
-//   "id":1,
-//   "time":"12pm",
-//   "interview": {
-//     "student": "Lydia Miller-Jones",
-//     "interviewer": 1
-//   }
-// }
-
-//state.interviewers
-// interviewers: {
-//   "1": {
-//     "id": 1,
-//     "name": "Sylvia Palmer",
-//     "avatar": "https://i.imgur.com/LpaY82x.png"
-//   },
-//   "2": {
-//     id: 2,
-//     name: "Tori Malcolm",
-//     avatar: "https://i.imgur.com/Nmx0Qxo.png"
-//   }
-// }
-//output
-// {
-//   "student": "Lydia Miller-Jones",
-//   "interviewer": {
-//     "id": 1,
-//     "name": "Sylvia Palmer",
-//     "avatar": "https://i.imgur.com/LpaY82x.png"
-//   }
-// }

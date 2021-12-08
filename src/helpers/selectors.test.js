@@ -45,11 +45,6 @@ interviewers: {
   }
 }
 };
-// //Return from getInterview
-// {student: student,
-// interviewer: {"id": 1,
-// "name": "Sylvia Palmer",
-// "avatar": "https://i.imgur.com/LpaY82x.png"}}
 
 test("getAppointmentsForDay returns an array", () => {
   const result = getAppointmentsForDay(state, "Monday");

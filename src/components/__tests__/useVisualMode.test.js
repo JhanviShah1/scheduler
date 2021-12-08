@@ -53,36 +53,3 @@ test("useVisualMode should replace the current mode", () => {
   expect(result.current.mode).toBe(FIRST);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const [history, setHistory] = useState([initial]);
-
-//   const transition = function (mode, replace = false) {
-//     setHistory((prev) =>
-//       replace ? [...prev.slice(0, -1), mode] : [...prev, mode]
-//     );
-    
-//   };
-// return { mode: history[history.length - 1], transition, back };

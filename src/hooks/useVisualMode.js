@@ -10,9 +10,7 @@ export default function useVisualMode(initial) {
   const [history, setHistory] = useState([initial]); 
 
   function transition(newMode, replace = false) {
-    //setMode(newMode);
-    //console.log('This is history ---', history);
-    //const newHistory = history.push(newMode)
+   
     if(replace){
     setHistory(prev=>[...prev.slice(0,-1),newMode])
   }else{

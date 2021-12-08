@@ -26,4 +26,4 @@ npm test
 npm run storybook
 ```
 !["Screenshot of Appointment form"](doc/Appointment-form-schedular-app.png)
-!["Screenshot of Adding appointment"](doc/Adding-appointment-schedular-app.png)
+!["Screenshot of Adding a new appointment"](doc/Adding-appointment-schedular-app.png)

@@ -14,9 +14,9 @@ export default function useApplicationData() {
   };
 
   useEffect(() => {
-    const days = axios.get("http://localhost:8001/api/days");
-    const appointments = axios.get("http://localhost:8001/api/appointments");
-    const interviewers = axios.get("http://localhost:8001/api/interviewers");
+    const days = axios.get("/api/days");
+    const appointments = axios.get("/api/appointments");
+    const interviewers = axios.get("/api/interviewers");
 
     Promise.all([days, appointments, interviewers]).then((all) => {
       setState((prev) => ({
@@ -56,15 +56,19 @@ export default function useApplicationData() {
   function bookInterview(id, interview, isNewInterview) {
     const appointment = {
       ...state.appointments[id],
-      interview: { ...interview },
     };
+
+    const requestType = appointment.interview
+      ? "editInterview"
+      : "createInterview";
+    appointment.interview = { ...interview };
 
     const appointments = {
       ...state.appointments,
       [id]: appointment,
     };
     let days = [...state.days];
-    if (isNewInterview) {
+    if (requestType === "createInterview") {
       days = state.days.map((d) => {
         if (d.name === state.day) {
           return { ...d, spots: d.spots - 1 };

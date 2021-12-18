@@ -28,7 +28,7 @@ describe("application", () => {
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
-    const { container, debug } = render(<Application />);
+    const { container} = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointments = getAllByTestId(container, "appointment");
 
@@ -52,7 +52,7 @@ describe("application", () => {
   });
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     // 1. Render the Application.
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     // 2. Wait until the text "Archie Cohen" is displayed.
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -86,7 +86,7 @@ describe("application", () => {
   });
   it("loads data, edits an interview and increases the spots remaining for Monday by 1", async () => {
     // 1. Render the Application.
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     // 2. Wait until the text "Archie Cohen" is displayed.
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -122,7 +122,7 @@ describe("application", () => {
 
   it("shows the save error when failing to save an appointment", async () => {
     axios.put.mockRejectedValueOnce();
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointments = getAllByTestId(container, "appointment");
@@ -142,7 +142,7 @@ describe("application", () => {
     expect(
       getByText(appointment, /Could not save the appointment/i)
     ).toBeInTheDocument();
-    //debug(appointment);
+    
     fireEvent.click(getByAltText(appointment, "Close"));
 
     expect(
@@ -158,7 +158,7 @@ describe("application", () => {
   });
   it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     // 2. Wait until the text "Archie Cohen" is displayed.
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -180,6 +180,6 @@ describe("application", () => {
     await waitForElement(() =>
       getByText(appointment, "Could not delete the appointment")
     );
-    //debug(appointment);
+    
   });
 });

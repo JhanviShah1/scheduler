@@ -56,6 +56,7 @@ export default function Appointment(props) {
     transition(CREATE);
     setIsNewInterview(true);
   };
+  
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
@@ -64,7 +65,6 @@ export default function Appointment(props) {
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
-          //deleteInterview={deleteInterview}
           deleteInterview={() => transition(CONFIRM)}
           onEdit={() => transition(EDIT)}
         />

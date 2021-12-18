@@ -25,5 +25,10 @@ npm test
 ```sh
 npm run storybook
 ```
+## scheduler-api can be cloned at 
+
+[Server Repo](https://github.com/JhanviShah1/Scheduler-api)
+
+
 !["Screenshot of Appointment form"](doc/Appointment-form-schedular-app.png)
 !["Screenshot of Adding a new appointment"](doc/Adding-appointment-schedular-app.png)
